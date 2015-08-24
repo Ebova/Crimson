@@ -20,6 +20,10 @@
 # core_minimal.mk instead. If you care about wearables, you need to modify
 # core_tiny.mk in addition to core_minimal.mk.
 
+# Chamges:
+# Crimson Project:	Removed some packages including the commented ones
+#										Added F-Droid, GmsCore and KISS
+
 PRODUCT_PACKAGES += \
     CalendarProvider \
     CaptivePortalLogin \
