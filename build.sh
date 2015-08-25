@@ -38,16 +38,16 @@ export PATH=$buildpath/bin:$PATH
 export JAVA_HOME=$javahome
 export ANDROID_HOME=$androidhome
 
+# Note that this step is NOT needed if you are running a system with python2.7 as default
+echo Entering virtual Python2.7 environment
+virtualenv2 -p /usr/bin/python2.7 .
+source bin/activate
+
 # Usually resyncing should be enough but you'll need the init when running this for the first time.
 echo Getting initial repository
 repo init -u https://android.googlesource.com/platform/manifest -b $aospbranch
 echo Resyncing repository
 repo sync
-
-# Note that this step is NOT needed if you are running a system with python2.7 as default
-echo Entering virtual Python2.7 environment
-virtualenv2 -p /usr/bin/python2.7 .
-source bin/activate
 
 echo Patching non-static AOSP content
 # This will set the pixel density to 275 - which is lower than default making everything on the screen unreadable for anyone but me it seems ;)
