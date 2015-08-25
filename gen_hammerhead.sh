@@ -1,4 +1,5 @@
 #! /bin/bash
+# Change these:
 buildpath=/anarchy/Suppdroid
 javahome=/usr/lib/jvm/java-7-openjdk
 androidhome=/home/$(whoami)/.android-sdk
@@ -6,6 +7,7 @@ echo Building Crimson $(cat build_version)
 
 cd $buildpath
 
+# Sorry, we can't be completely open-source since there are some drivers needed in order for your phone to work.
 echo Downloading proprietary drivers...
 wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-lmy48i-6922f559.tgz
 wget https://dl.google.com/dl/android/aosp/lge-hammerhead-lmy48i-42aa57af.tgz
@@ -20,22 +22,28 @@ echo Please accept the following license agreements to extract the drivers:
 ./extract-broadcom-hammerhead.sh
 ./extract-qcom-hammerhead.sh
 ./extract-lge-hammerhead.sh
+rm extract-broadcom-hammerhead.sh
+rm extract-qcom-hammerhead.sh
+rm extract-lge-hammerhead.sh
 
 echo Setting build variables
 export PATH=$buildpath/bin:$PATH
 export JAVA_HOME=$javahome
 export ANDROID_HOME=$androidhome
 
+# Usually resyncing should be enough but you'll need the init when running this for the first time.
 echo Getting initial repository
 repo init -u https://android.googlesource.com/platform/manifest -b android-5.1.1_r9
 echo Resyncing repository
 repo sync
 
+# Note that this step is NOT needed if you are running a system with python2.7 as default
 echo Entering virtual Python2.7 environment
 virtualenv2 -p /usr/bin/python2.7 .
 source bin/activate
 
 echo Patching non-static AOSP content
+# This will set the pixel density to 275 - which is lower than default making everything on the screen unreadable for anyone but me it seems ;)
 cat Additional/Hammerhead/add_device.mk >> device/lge/hammerhead/device.mk
 
 echo Setting build descriptor
