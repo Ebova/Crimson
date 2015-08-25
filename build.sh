@@ -55,6 +55,7 @@ cat Additional/Hammerhead/add_device.mk >> device/lge/hammerhead/device.mk
 
 echo Setting build descriptor
 sed -i "s/^build_desc.*/build_desc:=Crimson ReleaseCodename: Kate $(cat build_version) $(date) $(uname -snrm) $(whoami)/" build/core/Makefile
+# Thanks to kev https://stackoverflow.com/users/348785/kev for this solution!
 echo $(cat build_version | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}') > build_version
 
 echo Entering AOSP build-environment
