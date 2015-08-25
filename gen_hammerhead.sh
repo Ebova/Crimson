@@ -1,6 +1,6 @@
 #! /bin/bash
 # Change these:
-buildpath=/anarchy/Suppdroid
+buildpath=/anarchy/Crimson
 javahome=/usr/lib/jvm/java-7-openjdk
 androidhome=/home/$(whoami)/.android-sdk
 aospbranch=android-5.1.1_r9
