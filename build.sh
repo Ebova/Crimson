@@ -29,8 +29,9 @@ rm extract-qcom-hammerhead.sh
 rm extract-lge-hammerhead.sh
 
 echo Getting repo
-curl https://storage.googleapis.com/git-repo-downloads/repo > $(buildpath)/bin/repo
-chmod a+x $(buildpath)/bin/repo
+mkdir $buildpath/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > $buildpath/bin/repo
+chmod a+x $buildpath/bin/repo
 
 echo Setting build variables
 export PATH=$buildpath/bin:$PATH
