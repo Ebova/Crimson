@@ -3,6 +3,8 @@
 buildpath=/anarchy/Suppdroid
 javahome=/usr/lib/jvm/java-7-openjdk
 androidhome=/home/$(whoami)/.android-sdk
+aospbranch=android-5.1.1_r9
+
 echo Building Crimson $(cat build_version)
 
 cd $buildpath
@@ -33,7 +35,7 @@ export ANDROID_HOME=$androidhome
 
 # Usually resyncing should be enough but you'll need the init when running this for the first time.
 echo Getting initial repository
-repo init -u https://android.googlesource.com/platform/manifest -b android-5.1.1_r9
+repo init -u https://android.googlesource.com/platform/manifest -b $aospbranch
 echo Resyncing repository
 repo sync
 
