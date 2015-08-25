@@ -26,7 +26,6 @@ repo sync
 virtualenv2 -p /usr/bin/python2.7 .
 source bin/activate
 
-cp Additional/core.mk build/target/product/core.mk
 cat Additional/Hammerhead/add_device.mk >> device/lge/hammerhead/device.mk
 
 sed -i "s/^build_desc.*/build_desc:=Crimson ReleaseCodename: Kate $(cat build_version) $(date) $(uname -snrm) $(whoami)/" build/core/Makefile
