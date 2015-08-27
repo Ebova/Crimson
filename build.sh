@@ -49,9 +49,8 @@ repo init -u https://android.googlesource.com/platform/manifest -b $aospbranch
 echo Resyncing repository
 repo sync
 
-echo Patching non-static AOSP content
-# This will set the pixel density to 275 - which is lower than default making everything on the screen unreadable for anyone but me it seems ;)
-cat Additional/Hammerhead/add_device.mk >> device/lge/hammerhead/device.mk
+echo Re-syncing to Crimson
+git checkout .
 
 echo Setting build descriptor
 sed -i "s/^build_desc.*/build_desc:=Crimson ReleaseCodename: Kate $(cat build_version) $(date) $(uname -snrm) $(whoami)/" build/core/Makefile
