@@ -1,6 +1,3 @@
-[submodule "external/android_packages_apps_GmsCore"]
-	path = external/android_packages_apps_GmsCore
-	url = https://github.com/microg/android_packages_apps_GmsCore.git
 [submodule "external/fdroidclient"]
 	path = external/fdroidclient
 	url = https://github.com/f-droid/fdroidclient.git
