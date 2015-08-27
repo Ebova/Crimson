@@ -22,7 +22,7 @@
 
 # Chamges:
 # Crimson Project:	Removed some packages including the commented ones
-#										Added F-Droid, GmsCore and KISS
+#										Added F-Droid and KISS
 
 PRODUCT_PACKAGES += \
     CalendarProvider \
@@ -33,7 +33,6 @@ PRODUCT_PACKAGES += \
     DownloadProviderUi \
     F-Droid \
     FusedLocation \
-    GmsCore \
     InputDevices \
     KeyChain \
     Keyguard \
